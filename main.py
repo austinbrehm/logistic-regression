@@ -30,8 +30,18 @@ def compute_cost_function(x, y, w, b):
     return cost
 
 
-def compute_gradient():
-    pass
+def compute_gradient(x, y, w, b):
+    m = x.shape[0]
+    dj_dw, dj_db = 0.0
+    for i in range(m):
+        y_hat = 1 / (1 + e ** -(w * x[i] + b))
+        dj_dw += (y_hat - y[i]) * x[i]
+        dj_db += (y_hat - y[i])
+
+    dj_dw = dj_dw / m
+    dj_db = dj_db / m
+
+    return dj_dw, dj_db
 
 
 def gradient_descent():
