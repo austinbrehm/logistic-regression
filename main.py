@@ -7,13 +7,21 @@ import math
 
 
 # data: x_train = size, y_train = true/false price is over $5
-size = np.array([8, 12, 16, 20])
-price = np.array([0, 0, 1, 1])
+size = np.array([8, 12, 16, 20, 8, 8, 8, 8, 8, 12, 12, 12, 12, 12])
+price = np.array([0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1])
 
 
-def plot(x, y, w, b, title, x_label, y_label):
+def plot_data(x, y, title, x_label, y_label):
     plt.style.use('dark_background')
     plt.scatter(x, y, marker='o', c='lime')
+    plt.title(title)
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
+    plt.show()
+
+
+def plot_sigmoid(x, w, b, title, x_label, y_label):
+    plt.style.use('dark_background')
     plt.plot(x, 1/(1 + e**-(w*x + b)), 'fuchsia')
     plt.title(title)
     plt.xlabel(x_label)
@@ -64,7 +72,7 @@ def gradient_descent(x, y, w, b, alpha, iterations):
 # Note: change these parameters to alter model output
 initial_w = 0
 initial_b = 0
-initial_alpha = 0.00005
+initial_alpha = 0.000005
 initial_iterations = 10000
 
 # compute initial cost using initial parameters
@@ -93,4 +101,5 @@ else:
     print('UNDER $5.00')
 
 # plot initial data and sigmoid function
-plot(size, price, w_final, b_final, 'Logistic Regression: Coffee Prices Over $5.00', 'size (oz)', 'prediction')
+# plot_data(size, price, 'Coffee Prices', 'size (oz)', 'price ($)')
+# plot_sigmoid(size, w_final, b_final, 'Logistic Regression', 'size (Soz)', 'prediction')
