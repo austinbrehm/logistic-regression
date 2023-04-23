@@ -43,7 +43,7 @@ def compute_cost_function(x, y, w, b):
     cost = 0.0
     for i in range(m):
         y_hat = 1 / (1 + e ** -(w * x[i] + b))
-        cost = y[i] * log(y_hat) + (1 - y[i]) * log(1 - y_hat)
+        cost = cost + (y[i] * log(y_hat) + (1 - y[i]) * log(1 - y_hat))
     cost = cost / -m
     return cost
 
@@ -112,12 +112,12 @@ print(f'w_final: {w_final:0.2f}\nb_final: {b_final:0.2f}')
 final_cost = compute_cost_function(size, price, w_final, b_final)
 print(f'Final Cost: {final_cost:0.2f}')
 
-# 7. Predict if a 10 oz coffee is over $5 using w_final and b_final
-size_10 = 1 / (1 + e ** -(w_final * 10 + b_final))
-print(f'Prediction for 10 oz: {size_10:0.2f}')
+# 7. Predict if a 14 oz coffee is over $5 using w_final and b_final
+size_14 = 1 / (1 + e ** -(w_final * 14 + b_final))
+print(f'Prediction for 10 oz: {size_14:0.2f}')
 
 # 8. Classification threshold
-if size_10 > 0.5:
+if size_14 > 0.5:
     print('OVER $5.00')
 else:
     print('UNDER $5.00')
