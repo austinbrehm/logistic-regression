@@ -123,8 +123,8 @@ else:
     print('UNDER $5.00')
 
 # 9. Plot initial data and sigmoid function
-plot(size, price, w_final, b_final, 'Logistic Regression: Coffee Prices', 'size (oz)',
-     'probability [P(coffee price > $5)] ')
+#plot(size, price, w_final, b_final, 'Logistic Regression: Coffee Prices', 'size (oz)',
+#     'probability [P(coffee price > $5)] ')
 
-plot_w_b(w_history_final, b_history_final)
-plot_cost([i for i in range(1, len(cost_history_final) + 1)], cost_history_final)
+#plot_w_b(w_history_final, b_history_final)
+#plot_cost([i for i in range(1, len(cost_history_final) + 1)], cost_history_final)
